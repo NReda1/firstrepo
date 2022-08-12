@@ -38,6 +38,25 @@ jobs:
           name: "echo an env var that is part of our project"
           command: |
             echo $MY_NMAE
+            
+  save_hello_world_output:
+    docker:
+      - image: circleci/node:13.8.0
+    steps:
+      - run:  echo hello world > output.txt
+    - persist_to_workspace:
+        root: /tmp/dir
+        paths:
+           - output.txt
+  print_output_file:
+    docker:
+      - image: circleci/node:13.8.0
+      
+    - attach_workspace:
+        at: /tmp/dir
+    steps:
+      - run:  cat output.txt  
+        
     
 
 # Invoke jobs via workflows
