@@ -39,7 +39,7 @@ jobs:
     steps:
       - run:  echo world  
 
-  print_pipeline_id:
+  print_id:
     docker:
       - image: circleci/node:13.8.0
     steps:
@@ -56,5 +56,5 @@ workflows:
       - print_world
            requires
              - print_hello
-      - print_pipeline_id
+      - print_id
 
