@@ -37,7 +37,7 @@ jobs:
     docker:
       - image: circleci/node:13.8.0
     steps:
-<<<<<<< HEAD
+
       - run:  echo world 
 
   print_pipeline_id:
@@ -45,7 +45,7 @@ jobs:
       - image: circleci/node:13.8.0
     steps:
       - print_pipeline_id
-=======
+
       - run:  echo world 
   Print_variable:    
     docker:
@@ -76,7 +76,7 @@ jobs:
           at: ~/
       - run:  cat ~/output.txt  
         
->>>>>>> 2901d395aece72248dfa1be86a05c84eb18ac980
+
     
 
 # Invoke jobs via workflows
@@ -86,12 +86,12 @@ workflows:
     jobs:
       - say-hello
       - print_hello
-<<<<<<< HEAD
+ 
       - print_world
            requires
              - print_hello
 
-=======
+
       - print_world:
           requires:
             - print_hello 
@@ -100,4 +100,4 @@ workflows:
       - print_output_file:
           requires:
             - save_hello_world_output
->>>>>>> 2901d395aece72248dfa1be86a05c84eb18ac980
+
