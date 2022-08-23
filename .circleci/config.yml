@@ -52,6 +52,23 @@ jobs:
           name: on error
           command: echo "Hello Error!"
           when: on_fail
+          
+  smoke_test:
+    docker:
+      - image: alpine:latest
+    steps:
+      - run: apk add --update curl
+      - run:
+          name: smoke test
+          command: |
+             URL="https://blog.udacity.com/"
+             # Test if website exists
+             if curl -s --head ${URL} 
+             then
+               return 0
+             else
+               return 1
+             fi        
     
 
 # Invoke jobs via workflows
@@ -66,4 +83,5 @@ workflows:
              - print_hello
       - print_id
       - Job_Failures
+      - smoke_test
 
