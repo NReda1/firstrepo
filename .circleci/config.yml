@@ -101,7 +101,7 @@ jobs:
                --stack-name myStack-${CIRCLE_WORKFLOW_ID:0:7} \
                --region us-east-1  
                
-  smoke_test2:
+  #smoke_test2:
     docker:
       - image: alpine:latest
       
@@ -190,8 +190,8 @@ workflows:
       - print_id
       - Job_Failures
       - smoke_test
-      - create_infrastructure
-      - smoke_test2
+      #- create_infrastructure
+      #- smoke_test2
       - create_and_deploy_front_end
       - promote_to_production:
            requires:
