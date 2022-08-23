@@ -103,7 +103,7 @@ jobs:
                
   smoke_test2:
     docker:
-      - image: alpine:latest
+      - image: amazon/aws-cli
       
     steps:
       - run:
